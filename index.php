@@ -47,4 +47,24 @@ $link = @mysqli_connect($MYSQL_HOST, $MYSQL_USER, $MYSQL_PASS) or Die("Error");
 mysqli_set_charset($link, 'utf8mb4');
 
 
+if (!isset($urtid) and $urtid<1) {
+  printf("<h2><a href=\"/login.php\">請按此登入</a></h2>");
+  printf("<h3>請用可以看到 Search Console 的帳號，記得在彈出視窗的 checkbox 授權看到 Search Console</h3>");
+
+}
+
+/*
+if (isset($urtid)) {
+  printf("<h2><a href=\"/api/get_sites.php?user_id=%d\">更新列表</a>(若上面是空的)</h2>", $user_id);
+  printf("<h2><a href=\"https://myaccount.google.com/permissions\">若還不行請按此取消 GeegNe 的授權再登入一次</a>");
+
+  printf("<h2><a href=\"/redir/logout.php\">請按此登出</a></h2>");
+
+}
+
+test for editing text in VScode client
+*/
+
+
+
 ?>
