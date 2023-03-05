@@ -24,7 +24,7 @@ require_once '/home/urtube/src/vendor/autoload.php';
 
 $client = new Google_Client();
 // 代入從 API console 下載下來的 client_secret
-$client->setAuthConfig('client_secret.json');
+$client->setAuthConfig('/home/urtube/key/client_secret.json');
 //$client->setAccessType("offline");
 
 // Authorization code

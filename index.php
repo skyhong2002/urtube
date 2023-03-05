@@ -53,18 +53,40 @@ if (!isset($urtid) and $urtid<1) {
 
 }
 
-/*
 if (isset($urtid)) {
-  printf("<h2><a href=\"/api/get_sites.php?user_id=%d\">更新列表</a>(若上面是空的)</h2>", $user_id);
-  printf("<h2><a href=\"https://myaccount.google.com/permissions\">若還不行請按此取消 GeegNe 的授權再登入一次</a>");
+  printf("<h2>URT ID: %s</h2>", $urtid);
+
+  $sql="select given_name, family_name, picture  from urt_user where id = $urtid;";
+  $res=@mysqli_query($link, $sql);
+
+  list($given_name, $family_name, $picture)=@mysqli_fetch_row($res);
+
+  printf("Your name: %s %s <br>", $given_name, $family_name);
+  printf("<img src=\"%s\" with=\"600\" heigh=\"400\">", $picture);
+  //printf("%s", $picture);
+ 
+  // printf("<h2><a href=\"/api/get_sites.php?user_id=%d\">更新列表</a>(若上面是空的)</h2>", $user_id);
+  // printf("<h2><a href=\"https://myaccount.google.com/permissions\">若還不行請按此取消 GeegNe 的授權再登入一次</a>");
 
   printf("<h2><a href=\"/redir/logout.php\">請按此登出</a></h2>");
 
 }
 
-test for editing text in VScode client
-*/
 
+// upload watch history .json file
+if (isset($urtid)) {
+
+echo <<< HTML
+
+    <form method="post" enctype="multipart/form-data" action="/redir/upload.php">
+      <input type="file" name="file_csv" id="file_csv">
+      <input name="action" type="hidden" value="add">
+      <input type="submit" name="button" id="button" value="新增資料">
+    </form>
+
+HTML;
+  
+}
 
 
 ?>
